@@ -1,0 +1,48 @@
+﻿@model List<Product>
+@{
+}
+
+<link rel="stylesheet" href="~/css/style.css">
+
+<br>
+<h2 class="text-center mb-5">List of Cartoon Characters</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn-primary" asp-controller="Products" asp-action="Create">New Character</a>
+    </div>
+    <div class="col">
+    
+    </div>
+
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Character Name</th>
+            <th>Show</th>
+            <th>Channel</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var Product in Model)
+        {
+            <tr>
+                <td>@Product.Id</td>
+                <td>@Product.CharacterName</td>
+                <td>@Product.Show</td>
+                <td>@Product.Channel</td>
+                <td>@Product.CreatedAt.ToString("MM/dd/yyyy")</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" asp-controller="Products" asp-action="Edit" asp-route-id="@Product.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Products" asp-action="Delete" asp-route-id="@Product.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
