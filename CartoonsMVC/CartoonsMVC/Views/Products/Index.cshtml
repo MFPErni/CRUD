@@ -12,9 +12,7 @@
         <a class="btn btn-primary" asp-controller="Products" asp-action="Create">New Character</a>
     </div>
     <div class="col">
-    
     </div>
-
 </div>
 
 <table class="table">
@@ -25,10 +23,11 @@
             <th>Show</th>
             <th>Channel</th>
             <th>Created At</th>
+            <th>Image</th>
             <th>Action</th>
         </tr>
     </thead>
-    
+
     <tbody>
         @foreach (var Product in Model)
         {
@@ -38,6 +37,16 @@
                 <td>@Product.Show</td>
                 <td>@Product.Channel</td>
                 <td>@Product.CreatedAt.ToString("MM/dd/yyyy")</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(Product.Image))
+                    {
+                        <img src="~/images/@Product.Image" alt="@Product.CharacterName" style="width: 100px; height: auto;" />
+                    }
+                    else
+                    {
+                        <span>No Image</span>
+                    }
+                </td>
                 <td style="white-space:nowrap">
                     <a class="btn btn-primary btn-sm" asp-controller="Products" asp-action="Edit" asp-route-id="@Product.Id">Edit</a>
                     <a class="btn btn-danger btn-sm" asp-controller="Products" asp-action="Delete" asp-route-id="@Product.Id">Delete</a>

@@ -8,7 +8,7 @@
     <div class="col-md-8 mx-auto rounded border p-3">
         <h2 class="text-center mb-5">New Product</h2>
 
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div class="row mb-3">
                 <label class="col-sm-4 col-form-label">Character Name</label>
                 <div class="col-sm-8">
@@ -33,6 +33,14 @@
                         <option value='Nickelodeon'>Nickelodeon</option>
                         <option value='Disney Channel'>Disney Channel</option>
                     </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Image</label>
+                <div class="col-sm-8">
+                    <input type="file" class="form-control" asp-for="Image">
+                    <span asp-validation-for="Image" class="text-danger"></span>
                 </div>
             </div>
 

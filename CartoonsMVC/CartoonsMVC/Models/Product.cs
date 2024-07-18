@@ -16,5 +16,8 @@ namespace CartoonsMVC.Models
         public string Channel { get; set; } = "";
 
         public DateTime CreatedAt { get; set; }
+
+        [MaxLength(255)]
+        public string Image { get; set; } = "";
     }
 }

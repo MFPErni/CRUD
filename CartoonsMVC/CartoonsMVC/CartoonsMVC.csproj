@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\css\image\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>
